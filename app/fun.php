@@ -1,5 +1,6 @@
 <?php
-require '../app/database/conn.php';
+require __DIR__.'/database/conn.php';
+
  function test($data){
 
      echo "<pre>";
@@ -44,27 +45,40 @@ require '../app/database/conn.php';
 
 
 
- function selectAll($table,$param = []){
-     global $conn;
-     $sql = "SELECT * FROM $table";
-     $sql = $conn->prepare($sql);
-     $sql->execute();
-
-      return $sql->fetchAll();
 
 
- }
+ function selectAll($table, $params = []){
+    global $conn;
+    $sql = "SELECT * FROM $table";
 
- $data = [
-    'title'=>'Nursuiltan',
-    'text'=>'nursultanxabipnazar@gmail.com',
-    'img'=>"photo.jpg"
- ];
+    if(!empty($params)){
+        $i = 0;
+        foreach ($params as $key => $value){
+            if (!is_numeric($value)){
+                $value = "'".$value."'";
+            }
+            if ($i === 0){
+                $sql = $sql . " WHERE $key=$value";
+            
+            }else{
+                $sql = $sql . " AND $key=$value";
+            }
+            $i++;
+        }
+    }
 
- $post = insert('posts',$data);
-  
- $data = selectAll('posts');
- test($data);
+    $query = $conn->prepare($sql);
+    $query->execute();
+    
+    return $query->fetchAll();
+}
+
+ 
+
+
+
+
+
 
 
 ?>

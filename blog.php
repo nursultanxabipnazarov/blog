@@ -1,3 +1,11 @@
+
+<?php  
+
+require __DIR__.'/app/controllers/posts.php';
+?>
+
+
+
 <section id="blog" class="section-padding wow fadeInUp delay-05s">
       <div class="container">
         <div class="row">
