@@ -1,4 +1,5 @@
 <?php
+
 require __DIR__.'/database/conn.php';
 
  function test($data){
@@ -72,6 +73,35 @@ require __DIR__.'/database/conn.php';
     
     return $query->fetchAll();
 }
+
+
+function update($table, $id, $param = []){
+
+    global $conn;
+    $row = '';
+    $i = 0;
+    foreach ($param as $key => $value) {
+       if ($i===0) {
+        $row = $row.$key."= '".$value."'";
+
+       }else{
+
+        $row = $row.",".$key."= '".$value."'";
+         
+       }
+       $i++;
+    }
+
+    $sql = "UPDATE $table SET $row WHERE id =$id";
+    $sql=$conn->prepare($sql);
+    $sql->execute();
+     echo "ozgerdi";
+
+
+    
+}
+
+
 
  
 
