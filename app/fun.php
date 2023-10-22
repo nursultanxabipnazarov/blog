@@ -75,6 +75,34 @@ require __DIR__.'/database/conn.php';
 }
 
 
+function selectOne($table,$param = []){
+    global $conn;
+    $sql = "SELECT * FROM $table";
+
+    if(!empty($params)){
+        $i = 0;
+        foreach ($params as $key => $value){
+            if (!is_numeric($value)){
+                $value = "'".$value."'";
+            }
+            if ($i === 0){
+                $sql = $sql . " WHERE $key=$value";
+            
+            }else{
+                $sql = $sql . " AND $key=$value";
+            }
+            $i++;
+        }
+    }
+
+    $query = $conn->prepare($sql);
+    $query->execute();
+    
+    return $query->fetch();
+
+}
+
+
 function update($table, $id, $param = []){
 
     global $conn;
