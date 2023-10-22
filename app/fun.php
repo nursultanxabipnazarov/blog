@@ -102,6 +102,20 @@ function update($table, $id, $param = []){
 }
 
 
+function delete( $table , $id){
+    global $conn;
+    $sql = "DELETE FROM $table WHERE id = $id";
+    $sql = $conn->prepare($sql);
+    $sql->execute();
+    return "salam";
+
+}
+
+
+
+
+ 
+
 
  
 
