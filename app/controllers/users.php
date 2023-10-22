@@ -1,10 +1,10 @@
 <?php
 
 include __DIR__.'   /../fun.php';
-
+$erMsg = [];
 
 if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
-    $erMsg = [];
+   
         $admin = 0;
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
@@ -48,6 +48,7 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
 {
 
     echo "GET";
+    $erMsg = ['0'];
 }
 
  
