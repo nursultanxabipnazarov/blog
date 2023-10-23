@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 require __DIR__.'/database/conn.php';
+
 
  function test($data){
 

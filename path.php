@@ -1,3 +1,6 @@
 <?php
-const SITE_ROOT = __DIR__;
-echo SITE_ROOT;
+    
+
+    const BASE_URL = "http://blog/";      
+
+?>
