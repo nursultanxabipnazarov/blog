@@ -1,7 +1,8 @@
 <?php
+session_start();
 
 include __DIR__.'   /../fun.php';
-include __DIR__.'/../../path.php';
+include __DIR__.'../../../path.php';
 
 $erMsg = [];
 
@@ -34,23 +35,33 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
         }elseif($password !== $password2){
             array_push($erMsg,"parol qate !");
         }else{
-            $existence = selectOne('users',['email'=>$email]);
-            if($existence['email']===$email){
+            $existence = selectAll('users',['email'=>$email]);
+            if($existence[0]['email']===$email){
                 array_push($erMsg,"Пользователь с такой почтой уже зарегистрирован!");
             }else{
                 $pass = password_hash($password,PASSWORD_DEFAULT);
                 $user = [
-                    'admin'=>$admin,
+
+                     
                      'fname'=>$fname,
                      'lname'=>$lname,
                      'email'=>$email,
-                     'password'=>$pass
+                     'password'=>$pass,
+                     'admin'=>$admin
             
                 ];
 
                 $id = insert('users',$user);
-                $user = selectOne('users',['id'=>$id]);
-                test($user);
+                
+                 $user = selectAll('users',['id'=>$id]);
+                 
+
+                $_SESSION['id'] = $user[0]['id'];
+                $_SESSION['fname']=$user[0]['fname'];
+                $_SESSION['admin'] = $user[0]['admin'];
+                //test($_SESSION);
+                header('Location: /index.php');
+               
         }
     }
       

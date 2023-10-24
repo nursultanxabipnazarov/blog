@@ -1,4 +1,7 @@
 <!--HEADER-->
+<?php
+session_start()
+?>
 <div class="header">
       <div class="bg-color">
         <header id="main-header">
@@ -18,9 +21,17 @@
                   <li class=""><a href="#feature">About</a></li>
                   <li class=""><a href="#service">Services</a></li>
                   <li class=""><a href="#portfolio">Portfolio</a></li>
-                  <li class=""><a href="#testimonial">Testimonial</a></li>
-                  <li class=""><a href="#blog">Blog</a></li>
-                  <li class=""><a href="#contact">Contact Us</a></li>
+
+
+                  <?php if(isset($_SESSION['id'])):?>
+                  <li class=""><a href="#blog"><?=$_SESSION['fname']?></a></li>
+
+                  <li class=""><a href="logout.php">logout</a></li>
+                  <?php else:?>
+                    <li class=""><a href="#contact">signin</a></li>
+                    <li class=""><a href="reg.php">signup</a></li>
+
+                    <?php endif;?>
                 </ul>
               </div>
             </div>

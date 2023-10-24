@@ -99,7 +99,7 @@ function selectOne($table,$param = []){
     $query = $conn->prepare($sql);
     $query->execute();
     
-    return $query->fetch();
+    return $query->fetchAll();
 
 }
 
@@ -139,6 +139,8 @@ function delete( $table , $id){
     return "salam";
 
 }
+
+
 
 
 
