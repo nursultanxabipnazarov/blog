@@ -43,7 +43,7 @@
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" id="firstName" name="fname" class="form-control form-control-lg" />
+                    <input type="text" id="firstName" name="fname"  value="<?=$fname?>" class="form-control form-control-lg" />
                     <label class="form-label" for="firstName">First Name</label>
                   </div>
 
@@ -51,7 +51,7 @@
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" id="lastName"  name = "lname" class="form-control form-control-lg" />
+                    <input type="text" id="lastName"  name = "lname" value="<?=$lname?>" class="form-control form-control-lg" />
                     <label class="form-label" for="lastName">Last Name</label>
                   </div>
 

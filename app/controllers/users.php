@@ -68,8 +68,50 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
        
     }else{
 
-    echo "GET";
-    $erMsg = ['0'];
+        $fname = '';
+        $lname = '';
+        $erMsg = [];
+}
+
+
+
+if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['log'])){
+
+    $login = $_POST['email'];
+    $password = $_POST['password'];
+
+    if($login === '' || $password === ''){
+         array_push($erMsg,'Не все поля заполнены!!');
+
+    }else{
+        $existence = selectAll('users',['email'=>$login]);
+        if(empty($existence)){
+            array_push($erMsg,"Bunday user joq!");
+
+        }
+
+           elseif( $existence[0]['email']=== $login && password_verify($password,$existence[0]['password'])){
+
+            $_SESSION['id'] = $existence[0]['id'];
+            $_SESSION['fname']=$existence[0]['fname'];
+            $_SESSION['admin'] = $existence[0]['admin'];
+            if($_SESSION['admin']){
+                header('Location: /admin/admin.php');
+            }
+            else{
+                header('Location: /index.php');
+
+            }
+            
+
+        }
+        else{
+            array_push($erMsg,"Parol yaki login qate");
+        }
+    }
+
+}else{
+    $login = '';
 }
 
  

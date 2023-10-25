@@ -28,7 +28,7 @@ session_start()
 
                   <li class=""><a href="logout.php">logout</a></li>
                   <?php else:?>
-                    <li class=""><a href="#contact">signin</a></li>
+                    <li class=""><a href="log.php">signin</a></li>
                     <li class=""><a href="reg.php">signup</a></li>
 
                     <?php endif;?>
