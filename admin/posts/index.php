@@ -1,4 +1,5 @@
 <?php
+//  include __DIR__. "/../../path.php";
  include '../layout/header.php';
  include __DIR__.'/../../app/controllers/posts.php';
 
@@ -25,6 +26,13 @@ include '../layout/nav.php';
           </button>
         </div>
       </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="<?= BASE_URL."admin/posts/create.php";?>">
+  <button type="button" class="btn btn-primary">Post add</button>
+
+</a>
+
+</div>
       <table class="table table-bordered">
                 <thead>
                     <tr>
