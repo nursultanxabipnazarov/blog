@@ -5,6 +5,9 @@ $erMsg = [];
 
 
 $posts = selectAll('posts');
+ $author = $posts[0]['user_id'];
+$user = selectAll('users',['id'=>$author]);
+
 
 
 if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['post-create'])){

@@ -20,7 +20,7 @@ function Auth($user){
 
 if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
    
-        $admin = 1;
+        $admin = 0;
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
         $email = trim($_POST['email']);

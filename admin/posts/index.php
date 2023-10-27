@@ -39,6 +39,7 @@ include '../layout/nav.php';
                         <th>TITLE</th>
                         <th>TEXT</th>
                         <th>IMG</th>
+                        <th>AUTHOR</th>
                         <th>CRUD</th>
                     </tr>
                 </thead>
@@ -49,6 +50,7 @@ include '../layout/nav.php';
                         <td><?=$post['title']?></td>
                         <td><?=$post['text']?></td>
                         <td><img src="../../img/post/<?=$post['img'];?>" class="img-fluid" style="max-width: 120px; height: auto;"></td>
+                        <td><?=$user[0]['fname']?></td>
 
                         <td><?=$post['create_at']?></td>
                         <td>
