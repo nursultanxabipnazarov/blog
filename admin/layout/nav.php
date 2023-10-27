@@ -16,9 +16,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?= BASE_URL.'admin/categories/index.php';?>">
               <span data-feather="shopping-cart"></span>
-              Kategoriya
+              Categories
             </a>
           </li>
           <li class="nav-item">

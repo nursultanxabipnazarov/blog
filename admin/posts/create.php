@@ -2,6 +2,7 @@
 include __DIR__.'/../../app/controllers/posts.php';
  include '../layout/header.php';
 
+
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -23,9 +24,17 @@ include '../layout/nav.php';
           </button>
         </div>
       </div>
- <form  method="POST" class="row g-3">
+ <form  method="POST" enctype="multipart/form-data" class="row g-3">
       <div  class="mb-5">
       <div   class="container">
+      <label class="form-label">Category</label>
+<select name = "category" class="form-select" required="true" aria-required="true">
+  <?php foreach ($categories as $key => $category):?> 
+    
+  
+	<option  value="<?=$category['id'];?>"><?=$category['name'];?></option>
+  <?php endforeach;?>
+</select>
      <label for="exampleFormControlInput1"  class="form-label">Title</label>
      <input type="text" name = "title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
 
@@ -38,6 +47,10 @@ include '../layout/nav.php';
 
 
      </div>
+     <div class="custom-file">
+ <input type="file" name="img" class="custom-file-input" id="inputGroupFile01">
+<label class="custom-file-label" for="inputGroupFile01">Img add</label>
+</div>
 
    </div>
    </div>
