@@ -8,10 +8,11 @@
 
    $category_id = $_POST['id'];
    $sql = "SELECT * FROM posts INNER JOIN categories 
-          ON posts.id_category=categories.id WHERE posts.id_category = $category_id" ;
+          ON posts.id_category=categories.id INNER JOIN users ON users.id=posts.user_id  WHERE posts.id_category = $category_id" ;
    $sql = $conn->prepare($sql);
    $sql -> execute();
    $rez = $sql->fetchAll();
+   
    
 
  

@@ -28,7 +28,7 @@ include '../layout/nav.php';
                     </button>
                 </div>
             </div>
-            
+
 
             <div class="container-lm">
 
@@ -41,6 +41,7 @@ include '../layout/nav.php';
                                     <th>TITLE</th>
                                     <th>TEXT</th>
                                     <th>IMG</th>
+                                    <th>AUTHOR</th>
                                     <th>DATE</th>
                                 </tr>
                             </thead>
@@ -55,15 +56,11 @@ include '../layout/nav.php';
                                     <td><img src="../../img/post/<?=$re['img'];?>" class="img-fluid"
                                             style="max-width: 120px; height: auto;"></td>
 
-                                    <td><?=$re['create_at']?></td>
-                                    <td>
-                                        <a href="<?=BASE_URL."admin/posts/create.php";?>" class="add" title="Add"
-                                            data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a href="edit.php?id=<?=$post['id']?>" class="edit" title="Edit"
-                                            data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a href="delete.php?destroy=<?=$post['id'];?>" class="delete" title="Delete"
-                                            data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                    </td>
+                                    <td><?=$re['fname']?></td>
+
+                                    <td><?=$re['created_at']?></td>
+
+
                                 </tr>
                                 <?php endforeach;?>
 
