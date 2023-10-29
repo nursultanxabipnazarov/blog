@@ -22,9 +22,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?= BASE_URL.'admin/categoryPost/index.php';?>">
               <span data-feather="users"></span>
-              users
+              CategoryPost
             </a>
           </li>
           <li class="nav-item">
