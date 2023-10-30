@@ -140,5 +140,13 @@ if($_SERVER['REQUEST_METHOD']==="GET" && isset($_GET['destroy'])){
 
 }
 
+ //Single page
+if($_SERVER['REQUEST_METHOD']==="GET" &&  isset($_GET['single_id'])){
+
+    $id = $_GET['single_id'];
+    $single_id = selectAll('posts',['id'=>$id]);
+
+}
+
 
 ?>
