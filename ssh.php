@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bul admin panel</h1>
+    <h1>test</h1>
 </body>
 </html>

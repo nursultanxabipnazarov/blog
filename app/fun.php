@@ -8,6 +8,7 @@ require __DIR__.'/database/conn.php';
      echo "<pre>";
      print_r($data);
      echo "</pre>";
+     exit();
 
  }
 

@@ -20,7 +20,7 @@ function Auth($user){
 
 if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
    
-        $admin = 1;
+        $admin = 0;
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
         $email = trim($_POST['email']);
@@ -95,6 +95,7 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['log'])){
             $_SESSION['id'] = $existence[0]['id'];
             $_SESSION['fname']=$existence[0]['fname'];
             $_SESSION['admin'] = $existence[0]['admin'];
+            
             if($_SESSION['admin']){
                 header('Location: /admin/admin.php');
             }
