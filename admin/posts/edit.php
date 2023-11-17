@@ -1,10 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-include __DIR__.'../layout/header.php';
-
-?>
-=======
 include __DIR__.'/../../app/controllers/posts.php';
  include '../layout/header.php';
 
@@ -33,6 +27,16 @@ include '../layout/nav.php';
  <form  method="POST" enctype="multipart/form-data" class="row g-3">
       <div  class="mb-5">
       <div   class="container">
+        <p>
+        <?php if(count($erMsg) > 0): ?>
+          <ul>
+             <?php foreach ($erMsg as $err): ?>
+                <li><?=$err; ?></li>
+             <?php endforeach; ?>
+         </ul>
+      <?php endif; ?>
+                
+        </p>
       <label class="form-label">Category</label>
 <select name = "category" class="form-select" required="true" aria-required="true">
   <?php foreach ($categories as $key => $category):?> 
@@ -42,12 +46,13 @@ include '../layout/nav.php';
   <?php endforeach;?>
 </select>
      <label for="exampleFormControlInput1"  class="form-label">Title</label>
-     <input type="text" name = "title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+     <input type="text" name = "title" value="<?=$post[0]['title']?>" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+     <input type="hidden" name ="id" value="<?=$post[0]['id'];?>">
 
     <div   class="mb-2 ">
-     <label for="exampleFormControlTextarea1" class="form-label"> textarea</label>
+     <label for="exampleFormControlTextarea1"  class="form-label"> textarea</label>
   
-     <textarea id = "editor" class="form-control" name="text" id="exampleFormControlTextarea1" rows="5"></textarea>
+     <textarea id = "editor" class="form-control"  value="" name="text" id="exampleFormControlTextarea1" rows="5"><?=$post[0]['text']?></textarea>
   
   
 
@@ -61,7 +66,7 @@ include '../layout/nav.php';
    </div>
    </div>
 
-   <button  type="sumbit" name="post-create" class="btn btn-primary">Post add</button>
+   <button  type="sumbit" name="post-update" class="btn btn-primary">Post Update</button>
 </form>
 <script>
     ClassicEditor
@@ -75,4 +80,3 @@ include '../layout/nav.php';
 
 
 
->>>>>>> 6ce37908a147d6f4c964d41f2c79a4477b9f2103

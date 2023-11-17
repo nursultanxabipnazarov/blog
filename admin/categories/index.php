@@ -1,9 +1,10 @@
 <?php
-//  include __DIR__. "/../../path.php";
- include '../layout/header.php';
- include __DIR__.'/../../app/controllers/posts.php';
 
- 
+include __DIR__.'/../layout/header.php';
+include __DIR__."/../../app/controllers/categories.php";
+
+
+
 ?>
 
 <div class="container-fluid">
@@ -27,8 +28,8 @@ include '../layout/nav.php';
         </div>
       </div>
       <div class="btn-group" role="group" aria-label="Basic example">
-      <a href="<?= BASE_URL."admin/posts/create.php";?>">
-  <button type="button" class="btn btn-primary">Post add</button>
+      <a href="<?= BASE_URL."admin/categories/create.php";?>">
+  <button type="button" class="btn btn-primary">Category add +</button>
 
 </a>
 
@@ -36,31 +37,29 @@ include '../layout/nav.php';
       <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>TITLE</th>
-                        <th>TEXT</th>
-                        <th>IMG</th>
-                        <th>AUTHOR</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Date</th>
                         <th>CRUD</th>
                     </tr>
                 </thead>
                 <tbody>
-            <?php foreach ($posts as $key => $post) :?>
+            
               
+            <?php foreach ($categories as $key => $category) :?>
+            
                     <tr>
-                        <td><?=$post['title']?></td>
-                        <td><?=$post['text']?></td>
-                        <td><img src="../../img/post/<?=$post['img'];?>" class="img-fluid" style="max-width: 120px; height: auto;"></td>
-                        <td><?=$user[0]['fname']?></td>
-
-                        <td><?=$post['create_at']?></td>
+                        <td><?=$category['name']?></td>
+                        <td><?=$category['description']?></td>
+                        <td><?=$category['created_at']?></td>
                         <td>
-                            <a href="<?=BASE_URL."admin/posts/create.php";?>" class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a  href="edit.php?id=<?=$post['id']?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="delete.php?destroy=<?=$post['id'];?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="<?=BASE_URL."admin/categories/create.php";?> "class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a  href="edit.php?id=<?= $category['id'];?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a  href="delete.php?destroy=<?= $category['id'];?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
-              <?php endforeach;?>
-                  
+            
+                  <<?php endforeach;?>
                 </tbody>
             </table>
     

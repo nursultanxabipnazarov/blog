@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['reg'])){
     }
       
        
-    }else{
+}else{
 
         $fname = '';
         $lname = '';
@@ -97,7 +97,7 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset($_POST['log'])){
             $_SESSION['admin'] = $existence[0]['admin'];
             
             if($_SESSION['admin']){
-                header('Location: /admin/admin.php');
+                header('Location: /admin/index.php');
             }
             else{
                 header('Location: /index.php');

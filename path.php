@@ -1,6 +1,6 @@
 <?php
     
 
-    const BASE_URL = "http://blog/";      
+    const BASE_URL = "http://baker/";      
 
 ?>

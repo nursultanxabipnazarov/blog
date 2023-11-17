@@ -1,23 +1,15 @@
-
 <?php
-<<<<<<< HEAD
- include __DIR__.'/layout/header.php';
-?>
-<div class="container-fluid">
-  <div class="row">
-    
-  <?php
- include __DIR__.'/layout/nav.php';
-=======
-include 'layout/header.php';
+include __DIR__."/../../app/controllers/categories.php";
+include __DIR__.'/../layout/header.php';
+
+
 ?>
 
 <div class="container-fluid">
   <div class="row">
   
   <?php
- include 'layout/nav.php';
->>>>>>> 6ce37908a147d6f4c964d41f2c79a4477b9f2103
+include '../layout/nav.php';
 ?>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -33,43 +25,33 @@ include 'layout/header.php';
           </button>
         </div>
       </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="<?= BASE_URL."admin/categories/index.php";?>">
+  <button type="button" class="btn btn-primary">Categories</button>
 
-<<<<<<< HEAD
-      <canvas class="my-4 w-100" id="myChart" width="1000" height="380"></canvas>
+</a>
+<form  method="POST" class="row g-3">
+      <div  class="mb-5">
+      <div   class="container">
+     <label for="exampleFormControlInput1"  class="form-label">Name</label>
+     <input type="text" name = "name" class="form-control" id="exampleFormControlInput1" placeholder="name">
 
-      <h2>Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-           
-          </tbody>
-        </table>
-      </div>
-=======
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+    <div   class="mb-2 ">
+     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+  
+     <textarea id = "editor" class="form-control" name="description" id="exampleFormControlTextarea1" rows="5"></textarea>
+  
+  
 
-     
-     
->>>>>>> 6ce37908a147d6f4c964d41f2c79a4477b9f2103
-    </main>
-  </div>
-</div>
+
+     </div>
+
+   </div>
+   </div>
+
+   <button  type="sumbit" name="category-create" class="btn btn-primary">Category add</button>
+</form>
+
 
 
     <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
